@@ -1,0 +1,21 @@
+# dependencies
+api/node_modules
+
+# database (all except initialization script)
+database/*
+!database/init.sql
+
+# production
+api/build
+
+# local environment configuration file
+.env
+
+# misc
+api/package-lock.json
+
+api/npm-debug.log*
+api/yarn-debug.log*
+api/yarn-error.log*
+
+**/.DS_Store
