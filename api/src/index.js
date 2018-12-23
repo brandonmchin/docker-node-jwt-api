@@ -1,4 +1,4 @@
-import 'dotenv/config';  // environment variables
+import 'dotenv/config';  // import environment variables
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
@@ -6,7 +6,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 
 import { db } from './config';
-import { users } from './routes';
+import { users, auth } from './routes';
 
 const app = express();
 
@@ -33,6 +33,7 @@ app.get('/api', (req, res) => {
 
 // API routes
 app.use('/api/users', users);
+app.use('/api/auth', auth);
 
 const port = process.env.NODE_ENV === 'production' ? 80 : 5000;
 
