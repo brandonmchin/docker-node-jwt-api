@@ -10,7 +10,7 @@ import { db } from '../config';
  */
 const validate = (fields) => {
   return new Promise((resolve, reject) => {
-    Object.key(fields).forEach((key) => {
+    for (let key in fields) {
       if (validator.isEmpty(fields[key])) {
         reject({
           [key]: 'This field is required'
@@ -26,7 +26,7 @@ const validate = (fields) => {
           [key]: 'Passwords must match'
         });
       }
-    });
+    }
     resolve();
   });
 }
