@@ -2,8 +2,8 @@ import jwt from 'jsonwebtoken';
 
 export const authenticate = (req, res, next) => {
   try {
-    // const token = req.headers['authorization'].split(' ')[1];
-    const token = jwt.sign({}, process.env.JWT_KEY);  // TEST
+    const token = req.headers['authorization'].split(' ')[1];
+    // const token = jwt.sign({}, process.env.JWT_KEY);  // TEST
     const decoded = jwt.verify(token, process.env.JWT_KEY);
     req.userdata = decoded;
     next();

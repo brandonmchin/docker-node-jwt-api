@@ -17,8 +17,7 @@ router.get('/', authenticate, (req, res, next) => {
     return res.json({ users });
   })
   .catch((error) => {
-    // next(error);
-    return res.status(500).json({ error });
+    next(error);
   });
 });
 
@@ -36,39 +35,8 @@ router.get('/:id', authenticate, (req, res, next) => {
     return res.json({ user });
   })
   .catch((error) => {
-    // next(error);
-    return res.status(500).json({ error });
+    next(error);
   });
 });
 
 export default router;
-
-/////////////////////////////////////////////////////////////////////////////
-
-// @route   POST api/users/register
-// @desc    Create (register) a new user
-// router.post('/register', (req, res, next) => {
-//   userService.register(req.body)
-//   .then((result) => {
-//     return res.status(200).json(result);
-//   })
-//   .catch((error) => {
-//     next(error);
-//   });
-// });
-
-// @route   POST api/users/signin
-// @desc    Authenticate user
-// router.post('/signin', (req, res, next) => {
-//   userService.login(req.body)
-//   .then((result) => {
-//     return res.status(200).json(result);
-//   })
-//   .catch((error) => {
-//     next(error);
-//   });
-// });
-
-// module.exports = { 
-//   users: router 
-// };

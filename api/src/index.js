@@ -6,6 +6,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 
 import { db } from './config';
+import { errorHandler } from './middleware';
 import { users, auth } from './routes';
 
 const app = express();
@@ -34,6 +35,8 @@ app.get('/api', (req, res) => {
 // API routes
 app.use('/api/users', users);
 app.use('/api/auth', auth);
+
+app.use(errorHandler);  // global error handler
 
 const port = process.env.NODE_ENV === 'production' ? 80 : 5000;
 
