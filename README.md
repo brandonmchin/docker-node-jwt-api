@@ -8,14 +8,14 @@ Requires [Docker](https://docs.docker.com/install/)
 
 Build and start the containers
 
-```
+```bash
 $ docker-compose up
 
   -d, --detach    Detached mode: Run containers in the background
 ```
 
 Stop/remove the containers
-```
+```bash
 $ docker-compose stop
 
 $ docker-compose down
@@ -25,12 +25,12 @@ $ docker-compose down
 ```
 
 Show running containers
-```
+```bash
 $ docker ps
 ```
 
 Once a container is running, we can execute a command inside that container (e.g. view mysql database)
-```
+```bash
 $ docker exec -it <CONTAINER ID/NAME> bin/bash
 $ docker exec -it <CONTAINER ID/NAME> mysql -u "root" -p
 ```
@@ -40,13 +40,13 @@ $ docker exec -it <CONTAINER ID/NAME> mysql -u "root" -p
 
 Using MySQL 8.0, the following error may occur:
 
-```
+```bash
 ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client
 ```
 
 To fix the error, try the following:
 
-```
+```bash
   $ docker exec -it <CONTAINER ID/NAME> mysql -u "root" -p
   Enter password:
   
