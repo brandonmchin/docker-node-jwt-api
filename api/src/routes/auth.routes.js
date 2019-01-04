@@ -1,5 +1,6 @@
 import { Router } from 'express';
 
+import { validate } from '../middleware';
 import { authService } from '../services';
 
 const router = Router();
@@ -14,7 +15,7 @@ const router = Router();
  * @param {string} req.body.passwordMatch
  * @description Create a new user if they don't already exist
  */
-router.post('/register', (req, res, next) => {
+router.post('/register', validate, (req, res, next) => {
   const { email, username, password, passwordMatch } = req.body;
   authService.register({ email, username, password, passwordMatch })
   .then(() => {
@@ -33,7 +34,7 @@ router.post('/register', (req, res, next) => {
  * @param {string} req.body.password
  * @description: Authenticate user and generate a new JSON web token
  */
-router.post('/login', (req, res, next) => {
+router.post('/login', validate, (req, res, next) => {
   const { username, password } = req.body;
   authService.login({ username, password })
   .then((result) => {

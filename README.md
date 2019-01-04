@@ -1,10 +1,10 @@
 # DOCKER NODE JWT API TEMPLATE
 
-## A template that is used to setup the backend for a Node.js application.
+### A template that is used to setup the backend for a Node.js application.
 
-## SETUP
+## START
 
-Requires [Docker](https://docs.docker.com/install/)
+Requires [Docker Engine && Docker Compose](https://docs.docker.com/install/)
 
 Build and start the containers
 
@@ -13,6 +13,8 @@ $ docker-compose up
 
   -d, --detach    Detached mode: Run containers in the background
 ```
+
+## REFERENCE
 
 Stop/remove the containers
 ```
